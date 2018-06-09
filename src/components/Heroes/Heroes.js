@@ -15,7 +15,7 @@ class Heroes extends Component {
 
   componentDidMount() {
     axios.get('/api/heroes').then(response => {
-      this.setState({ heroes: response.data})
+      this.setState({ heroes: response.data});
     });
   }
 
@@ -23,7 +23,7 @@ class Heroes extends Component {
     const { heroes } = this.state;
     let displayHeroes = heroes.map(hero => {
       return (
-        <Hero />
+        <Hero key={ hero.id } />
       );
     });
 
