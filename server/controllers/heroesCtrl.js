@@ -17,14 +17,15 @@ const getHeroes = (req, res) => {
 };
 
 /************** NOT FUNCTIONAL ****************/
-// const deleteHero = (req, res) => {
-//   const { id } = req.params;
-//   let heroIndex = heroes.findIndex((hero) => hero.id == id);
-//   heroes.splice(heroIndex, 1);
-//   res.status(200).send(heroes);
-// };
+const deleteHero = (req, res) => {
+  const { id } = req.params;
+  let heroIndex = heroes.findIndex((hero) => hero.id == id);
+  heroes.splice(heroIndex, 1);
+  res.status(200).send(heroes);
+};
 /************** NOT FUNCTIONAL ****************/
 
 module.exports = {
-  getHeroes
+  getHeroes,
+  deleteHero
 };

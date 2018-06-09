@@ -14,7 +14,7 @@ app.get('/api/test', (req, res) => {
 });
 
 app.get('/api/heroes', heroesCtrl.getHeroes);
-// app.delete('api/heroes/id', heroesCtrl.deleteHero);
+app.delete('/api/heroes/:id', heroesCtrl.deleteHero);
 
 const port = 3001;
 app.listen(port, () => {
