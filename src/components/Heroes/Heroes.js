@@ -23,7 +23,9 @@ class Heroes extends Component {
     const { heroes } = this.state;
     let displayHeroes = heroes.map(hero => {
       return (
-        <Hero key={ hero.id } />
+        <Hero 
+          key={ hero.id }
+          obj={ hero } />
       );
     });
 
