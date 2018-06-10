@@ -11,11 +11,12 @@ class Heroes extends Component {
 
     this.state = {
       heroes: [],
-      userInput: ''
+      newHeroInput: ''
     }
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.deleteHero = this.deleteHero.bind(this);
   }
 
   componentDidMount() {
@@ -26,29 +27,41 @@ class Heroes extends Component {
 
   handleChange(event) {
     // console.log(event.target.value);
-    this.setState({ userInput: event.target.value });
+    this.setState({ newHeroInput: event.target.value });
   }
 
   handleClick(event) {
     // // prevents the page from refreshing when submitted
     // event.preventDefault();
     axios
-      .post(`/api/heroes`, { name: this.state.userInput })
+      .post(`/api/heroes`, { name: this.state.newHeroInput })
       .then(response => {
         this.setState({
           heroes: response.data,
-          userInput: ''
+          newHeroInput: ''
+        });
+      });
+  }
+
+  deleteHero(id) {
+    axios
+      .delete(`/api/heroes/${ id }`)
+      .then(response => {
+        console.log(id);
+        this.setState({
+          heroes: response.data
         });
       });
   }
 
   render() {
-    const { heroes, userInput } = this.state;
+    const { heroes, newHeroInput } = this.state;
     let displayHeroes = heroes.map(hero => {
       return (
         <Hero 
           key={ hero.id }
-          obj={ hero } />
+          obj={ hero }
+          deleteHeroes={ this.deleteHero } />
       );
     });
 
@@ -56,11 +69,9 @@ class Heroes extends Component {
       <div>
         <Input
           placeHolder="Add a new hero!"
-          inputValue={ userInput }
+          inputValue={ newHeroInput }
           handleChange={ this.handleChange } />
-        <Button clickButton={ this.handleClick }>
-          Add Hero!
-        </Button>
+        <Button clickButton={ this.handleClick }>Add Hero!</Button>
         { displayHeroes }
       </div>
     );

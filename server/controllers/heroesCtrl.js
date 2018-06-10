@@ -18,11 +18,13 @@ const getHeroes = (req, res) => {
 
 const createHero = (req, res) => {
   const { name } = req.body;
-  // 
+  // increments id
   let newHeroId = heroes.length + 1;
+  // creates new object to be pushed into Heroes array
   let newHero = {
     name,
-    id: newHeroId
+    id: newHeroId,
+    description: ''
   };
   heroes.push(newHero);
   res.status(200).send(heroes);
