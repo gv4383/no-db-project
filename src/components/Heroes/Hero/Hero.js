@@ -5,6 +5,7 @@ class Hero extends Component {
   constructor(props) {
     super(props);
   }
+  
   render() {
     const { obj } = this.props;
     return (
