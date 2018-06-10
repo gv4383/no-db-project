@@ -47,7 +47,6 @@ class Heroes extends Component {
     axios
       .delete(`/api/heroes/${ id }`)
       .then(response => {
-        console.log(id);
         this.setState({
           heroes: response.data
         });

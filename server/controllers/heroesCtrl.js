@@ -2,6 +2,7 @@
 const axios = require('axios');
 
 let heroes = [];
+let id = 24;
 
 axios
   .get('https://overwatch-api.net/api/v1/hero/')
@@ -19,11 +20,11 @@ const getHeroes = (req, res) => {
 const createHero = (req, res) => {
   const { name } = req.body;
   // increments id
-  let newHeroId = heroes.length + 1;
+  id++;
   // creates new object to be pushed into Heroes array
   let newHero = {
     name,
-    id: newHeroId,
+    id,
     description: ''
   };
   heroes.push(newHero);
