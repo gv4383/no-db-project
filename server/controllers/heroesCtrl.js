@@ -2,6 +2,7 @@
 const axios = require('axios');
 
 let heroes = [];
+// API already brings in an array of 24 obj, each with a unique id starting at 1
 let id = 24;
 
 axios
@@ -23,11 +24,19 @@ const createHero = (req, res) => {
   id++;
   // creates new object to be pushed into Heroes array
   let newHero = {
-    name,
     id,
+    name,
     description: ''
   };
   heroes.push(newHero);
+  res.status(200).send(heroes);
+};
+
+const editHero = (req, res) => {
+  const { id } = req.params;
+  const { description } = req.body;
+  let heroIndex = heroes.findIndex((hero) => hero.id == id);
+  heroes[heroIndex].description = description;
   res.status(200).send(heroes);
 };
 
@@ -41,5 +50,6 @@ const deleteHero = (req, res) => {
 module.exports = {
   getHeroes,
   createHero,
+  editHero,
   deleteHero
 };

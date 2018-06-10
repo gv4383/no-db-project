@@ -15,6 +15,7 @@ app.get('/api/test', (req, res) => {
 
 app.get('/api/heroes', heroesCtrl.getHeroes);
 app.post('/api/heroes', heroesCtrl.createHero);
+app.put('/api/heroes/:id', heroesCtrl.editHero);
 app.delete('/api/heroes/:id', heroesCtrl.deleteHero);
 
 const port = 3001;
