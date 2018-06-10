@@ -12,7 +12,6 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Heroes of Overwatch</h1>
         </header>
-        Placeholder
         <Heroes />
       </div>
     );

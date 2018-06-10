@@ -25,18 +25,21 @@ class Heroes extends Component {
   }
 
   handleChange(event) {
+    // console.log(event.target.value);
     this.setState({ userInput: event.target.value });
   }
 
-  handleClick() {
-    const { heroes, userInput } = this.state;
-    let newHeroObj = {
-      name: userInput,
-      id: '25',
-      description: 'test'
-    };
-    let newHeroesArr = heroes.slice().push(newHeroObj);
-    this.setState({ heroes: newHeroesArr });
+  handleClick(event) {
+    // // prevents the page from refreshing when submitted
+    // event.preventDefault();
+    axios
+      .post(`/api/heroes`, { name: this.state.userInput })
+      .then(response => {
+        this.setState({
+          heroes: response.data,
+          userInput: ''
+        });
+      });
   }
 
   render() {
@@ -51,15 +54,13 @@ class Heroes extends Component {
 
     return (
       <div>
-        {/* <input
-          onChange={ this.handleChange }
-          placeholder="Add a new hero!"
-          value={ userInput } /> */}
         <Input
           placeHolder="Add a new hero!"
           inputValue={ userInput }
           handleChange={ this.handleChange } />
-        <Button>Add Hero!</Button>
+        <Button clickButton={ this.handleClick }>
+          Add Hero!
+        </Button>
         { displayHeroes }
       </div>
     );

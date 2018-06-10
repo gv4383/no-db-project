@@ -18,6 +18,7 @@ const getHeroes = (req, res) => {
 
 const createHero = (req, res) => {
   const { name } = req.body;
+  // 
   let newHeroId = heroes.length + 1;
   let newHero = {
     name,
