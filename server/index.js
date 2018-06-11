@@ -14,10 +14,14 @@ app.get('/api/test', (req, res) => {
   res.status(200).send({ message: "Hello, world!" });
 });
 
-// endpoints that connect the back-end to the front-end as well as the external API used
+/*** endpoints that connect the back-end to the front-end as well as the external API used ***/
+// brings data from external API to local server
 app.get('/api/heroes', heroesCtrl.getHeroes);
+// creates a new object in heroes array in local server
 app.post('/api/heroes', heroesCtrl.createHero);
+// edits an object within the heroes array in local server
 app.put('/api/heroes/:id', heroesCtrl.editHero);
+// deletes an object within the heroes array in local server
 app.delete('/api/heroes/:id', heroesCtrl.deleteHero);
 
 // sets up local server on port 3001

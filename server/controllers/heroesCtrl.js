@@ -16,7 +16,7 @@ axios
     heroes = heroArr;
 });
 
-
+// retrieves data from external API and stores objects in heroes array
 const getHeroes = (req, res) => {
     res.status(200).send(heroes);
 };
