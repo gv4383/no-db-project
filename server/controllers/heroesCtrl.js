@@ -41,7 +41,7 @@ const createHero = (req, res) => {
 const editHero = (req, res) => {
   const { id } = req.params;
   const { description } = req.body;
-  let heroIndex = heroes.findIndex((hero) => hero.id === +id);
+  let heroIndex = heroes.findIndex((hero) => hero.id == id);
   heroes[heroIndex].description = description;
   res.status(200).send(heroes);
 };
