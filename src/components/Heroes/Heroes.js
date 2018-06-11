@@ -30,13 +30,13 @@ class Heroes extends Component {
   }
 
   handleChange(event) {
-    // console.log(event.target.value);
+    // sets whatever is typed in the input bar to newHeroInput
     this.setState({ newHeroInput: event.target.value });
   }
 
   addNewHero(event) {
-    // // prevents the page from refreshing when submitted
-    // event.preventDefault();
+    // sends a request to back-end to create a new hero entry
+    // after the request is made, the new hero is added to heroes array and the input is reset
     axios
       .post('/api/heroes', { name: this.state.newHeroInput })
       .then(response => {
@@ -48,10 +48,13 @@ class Heroes extends Component {
   }
 
   toggleEdit() {
+    // toggles whether or not hero descriptions can be edited
     this.setState({ editHero: !this.state.editHero });
   }
 
   editNewHero(id, description) {
+    // sends request to back-end to edit description
+    // when response is obtained, heroes array is updated and editing is set to disabled
     axios
       .put(`/api/heroes/${ id }`, { description })
       .then(response => {
@@ -63,6 +66,8 @@ class Heroes extends Component {
   }
 
   deleteHero(id) {
+    // sends request to back-end to delete an obj in the heroes array
+    // when response is obtained, heroes array is updated
     axios
       .delete(`/api/heroes/${ id }`)
       .then(response => {
@@ -73,7 +78,9 @@ class Heroes extends Component {
   }
 
   render() {
+    // destructuring from this.state
     const { heroes, newHeroInput, editHero } = this.state;
+    // maps over heroes array and renders however many objects are stored in heroes array
     let displayHeroes = heroes.map(hero => {
       return (
         <Hero 
