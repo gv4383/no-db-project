@@ -88,6 +88,7 @@ class Heroes extends Component {
     return (
       <div className="main-container">
         <Input
+          className="input-box"
           placeHolder="Add a new hero!"
           inputValue={ newHeroInput }
           handleChange={ this.handleChange } />
