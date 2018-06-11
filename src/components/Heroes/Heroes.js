@@ -4,6 +4,7 @@ import axios from 'axios';
 import Hero from './Hero/Hero';
 import Button from './../Button/Button';
 import Input from './../Input/Input';
+import './Heroes.css';
 
 class Heroes extends Component {
   constructor(props) {
@@ -85,14 +86,14 @@ class Heroes extends Component {
     });
 
     return (
-      <div>
+      <div className="main-container">
         <Input
           placeHolder="Add a new hero!"
           inputValue={ newHeroInput }
           handleChange={ this.handleChange } />
-        <Button clickButton={ this.addNewHero }>Add Hero!</Button>
+        <Button className="buttons add-button" clickButton={ this.addNewHero }>ADD HERO</Button>
         <br />
-        <Button clickButton={ this.toggleEdit }>Edit Heroes!</Button>
+        <Button className="buttons edit-button" clickButton={ this.toggleEdit }>EDIT HEROES</Button>
         { displayHeroes }
       </div>
     );

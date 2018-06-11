@@ -33,35 +33,43 @@ class Hero extends Component {
     if (this.state.editHero || allowEdit) {
       return (
         <div className="hero-container">
-          <h2>Name: { obj.name }</h2>
+          <h2 className="hero-name">Name: { obj.name }</h2>
           <p>Hero ID: { obj.id }</p>
           <Input
             placeHolder='Edit hero description!'
             inputValue={ newHeroDescription }
             handleChange={ this.handleDescriptionChange } />
           {/* <Button clickButton={ () => this.toggleEdit }>Toggle Edit!</Button> */}
-          <Button clickButton={ () => editHeroes(obj.id, newHeroDescription) }>Edit Description!</Button>
-          <br />
-          <br />
-          <button onClick={ this.toggleEdit }>Toggle Edit!</button>
-          <br />
-          <br />
+          <Button
+            className="buttons"
+            clickButton={ () => editHeroes(obj.id, newHeroDescription) }>
+            Edit Description!
+          </Button>
+          <button
+            className="buttons"
+            onClick={ this.toggleEdit }>
+            Toggle Edit!
+          </button>
         </div>
       );
     }
     else {
       return (
         <div className="hero-container">
-          <h2>Name: { obj.name }</h2>
+          <h2 className="hero-name">Name: { obj.name }</h2>
           <p>Hero ID: { obj.id }</p>
           <p>Description: { obj.description }</p>
           {/* <Button clickButton={ () => this.toggleEdit }>Toggle Edit!</Button> */}
-          <button onClick={ this.toggleEdit }>Toggle Edit!</button>
-          <br />
-          <br />
-          <Button clickButton={ () => deleteHeroes(obj.id) }>Delete Hero!</Button>
-          <br />
-          <br />
+          <button
+            className="buttons"
+            onClick={ this.toggleEdit }>
+            Toggle Edit!
+          </button>
+          <Button
+            className="buttons"
+            clickButton={ () => deleteHeroes(obj.id) }>
+            Delete Hero!
+          </Button>
         </div>
       );
     }
