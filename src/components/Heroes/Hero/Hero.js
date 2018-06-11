@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Heroes from './../Heroes';
 import Button from './../../Button/Button';
 import Input from './../../Input/Input';
+import './Hero.css';
 
 class Hero extends Component {
   constructor(props) {
