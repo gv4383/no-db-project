@@ -1,3 +1,7 @@
+.top {
+  margin-top: 2vh;
+}
+
 .input-box {
   height: 25px;
   border: 1px solid #d9d9d9;

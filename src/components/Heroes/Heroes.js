@@ -88,13 +88,13 @@ class Heroes extends Component {
     return (
       <div className="main-container">
         <Input
-          className="input-box"
+          className="input-box top"
           placeHolder="Add a new hero!"
           inputValue={ newHeroInput }
           handleChange={ this.handleChange } />
-        <Button className="buttons add-button" clickButton={ this.addNewHero }>ADD HERO</Button>
+        <Button className="buttons add-button top" clickButton={ this.addNewHero }>ADD HERO</Button>
         <br />
-        <Button className="buttons edit-button" clickButton={ this.toggleEdit }>EDIT HEROES</Button>
+        <Button className="buttons edit-button top" clickButton={ this.toggleEdit }>EDIT HEROES</Button>
         { displayHeroes }
       </div>
     );
