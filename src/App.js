@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Heroes from './components/Heroes/Heroes';
-import logo from './logo.svg';
-import './reset.css';
-import './App.css';
+import Heroes from "./components/Heroes/Heroes";
+import logo from "./logo.svg";
+import "./reset.css";
+import "./App.css";
 
 class App extends Component {
   render() {
@@ -11,7 +11,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">( ͡° ͜ʖ ͡°)</h1>
+          <h1 className="App-title">Heroes Of Overwatch</h1>
         </header>
         <div className="container">
           <Heroes />
